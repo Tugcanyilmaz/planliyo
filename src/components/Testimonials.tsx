@@ -15,10 +15,10 @@ const testimonials = [
     business: 'FitLife Pilates Stüdyosu',
     image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
-    text: 'Grup derslerimiz ve kişisel seanslarımız için mükemmel bir çözüm. WhatsApp entegrasyonu özellikle çok işimize yarıyor. Müşterilerimizle iletişim çok kolay.'
+    text: 'Grup derslerimiz ve kişisel seanslarımız için mükemmel bir çözüm. WhatsApp bildirimleri özellikle çok işimize yarıyor. Müşterilerimizle iletişim çok kolay.'
   },
   {
-    name: 'Zeynep Demir',
+    name: 'Murat Şahin',
     role: 'Diyetisyen',
     business: 'Sağlıklı Yaşam Danışmanlık',
     image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
@@ -39,7 +39,7 @@ const testimonials = [
     business: 'PatiDost Veteriner Kliniği',
     image: 'https://images.pexels.com/photos/3845457/pexels-photo-3845457.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
-    text: 'Acil vakalar ve rutin kontroller için farklı randevu tipleri oluşturabiliyoruz. SMS hatırlatmaları sayesinde no-show oranımız çok düştü. Teknik destek ekibi de çok yardımcı oluyor.'
+    text: 'Acil vakalar ve rutin kontroller için farklı randevu tipleri oluşturabiliyoruz. WhatsApp sayesinde no-show oranımız çok düştü. Teknik destek ekibi de çok yardımcı oluyor.'
   },
   {
     name: 'Burak Şahin',
