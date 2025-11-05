@@ -98,7 +98,7 @@ function ContactForm() {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1">Ofis</h3>
-                  <p className="text-gray-600">İstanbul, Türkiye</p>
+                  <p className="text-gray-600">İzmir, Türkiye</p>
                   <p className="text-gray-600">Pazartesi - Cuma: 09:00 - 18:00</p>
                 </div>
               </div>
