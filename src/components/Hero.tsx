@@ -1,19 +1,17 @@
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 function Hero() {
   return (
     <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
+      {/* Üst menü (Hemen Başla kaldırıldı) */}
       <nav className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Calendar className="w-8 h-8 text-blue-600" />
             <span className="text-2xl font-bold text-gray-900">Planliyo</span>
           </div>
-          <button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
-            Hemen Başla
-          </button>
         </div>
       </nav>
 
@@ -34,7 +32,7 @@ function Hero() {
             <span className="font-semibold text-gray-900"> modern randevu yönetim sistemi</span>
           </p>
 
-          {/* "Ücretsiz Dene" butonu kaldırıldı, sadece "Demo İzle" kaldı */}
+          {/* Sadece "Demo İzle" butonu kaldı */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up animation-delay-200">
             <button className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all border-2 border-gray-200 hover:border-gray-300">
               Demo İzle
