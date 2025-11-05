@@ -9,11 +9,11 @@ const features = [
   {
     icon: Clock,
     title: 'Otomatik Hatırlatmalar',
-    description: 'SMS ve e-posta ile otomatik randevu hatırlatmaları gönderin. No-show oranlarını %70 azaltın.'
+    description: 'Whatsapp otomatik randevu hatırlatmaları gönderin. No-show oranlarını %70 azaltın.'
   },
   {
     icon: MessageSquare,
-    title: 'WhatsApp Entegrasyonu',
+    title: 'WhatsApp Bildirimi',
     description: 'Müşterilerinizle WhatsApp üzerinden iletişim kurun. Randevu onayları ve bildirimler gönderin.'
   },
   {
