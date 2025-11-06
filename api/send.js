@@ -11,8 +11,8 @@ export default async function handler(req, res) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: "Planliyo <onboarding@resend.dev>",
-      to: "tugcanyilmazz@gmail.com", // kendi e-posta adresin
+      from: "Planliyo <onboarding@resend.dev>", // test için Resend domaini
+      to: "tugcanyilmazz@gmail.com", // kendi mail adresin
       subject: "Planliyo İletişim Formu",
       html: `
         <h2>Yeni iletişim mesajı</h2>
