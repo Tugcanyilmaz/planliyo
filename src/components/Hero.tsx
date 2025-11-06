@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ContactForm from "./ContactForm"; // ContactForm.tsx aynı klasörde
 
 export default function Hero() {
   const [showVideo, setShowVideo] = useState(false);
@@ -15,7 +16,7 @@ export default function Hero() {
           Kuaför, güzellik merkezi, klinik, diyetisyen, veteriner, pilates ve reformer stüdyoları için online randevu sistemi.
         </p>
 
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 mb-12">
           <button
             onClick={() => setShowVideo(true)}
             className="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-md hover:bg-blue-700 transition"
@@ -48,6 +49,11 @@ export default function Hero() {
             </div>
           </div>
         )}
+
+        {/* Contact Form */}
+        <div className="mt-16">
+          <ContactForm />
+        </div>
       </div>
     </section>
   );
