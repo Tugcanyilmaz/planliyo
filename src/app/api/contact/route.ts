@@ -1,5 +1,3 @@
-// ✅ src/app/api/contact/route.ts
-
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -7,32 +5,25 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { name, email, phone, businessType, message } = body;
+    const { name, email, message } = await req.json();
 
-    // Gönderilecek e-posta içeriği
-    const htmlContent = `
-      <h2>Yeni İletişim Formu Mesajı</h2>
-      <p><strong>Ad Soyad:</strong> ${name}</p>
-      <p><strong>E-posta:</strong> ${email}</p>
-      <p><strong>Telefon:</strong> ${phone}</p>
-      <p><strong>İşletme Türü:</strong> ${businessType}</p>
-      <p><strong>Mesaj:</strong> ${message || "(boş)"}</p>
-    `;
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: "Eksik bilgi var." }, { status: 400 });
+    }
 
     await resend.emails.send({
-      from: "Planliyo <onboarding@resend.dev>", // Resend’de doğrulanan adres olmalı
-      to: process.env.CONTACT_RECEIVER_EMAIL as string,
-      subject: "Yeni İletişim Formu Mesajı",
-      html: htmlContent,
+      from: "Planliyo <onboarding@resend.dev>", // istersen domainin varsa burayı değiştir
+      to: "tugcanyilmaz@hotmail.com", // mesajın düşmesini istediğin e-posta
+      subject: `Yeni mesaj: ${name}`,
+      html: `
+        <p><strong>Gönderen:</strong> ${name} (${email})</p>
+        <p><strong>Mesaj:</strong><br>${message}</p>
+      `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("❌ Contact API Error:", error);
-    return NextResponse.json(
-      { error: "Mesaj gönderilemedi. Lütfen tekrar deneyin." },
-      { status: 500 }
-    );
+    console.error(error);
+    return NextResponse.json({ error: "Mesaj gönderilemedi." }, { status: 500 });
   }
 }
