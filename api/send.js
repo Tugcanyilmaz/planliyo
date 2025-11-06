@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     await resend.emails.send({
       from: "Planliyo <onboarding@resend.dev>",
-      to: "seninmailadresin@gmail.com", // kendi e-posta adresin
+      to: "tugcanyilmazz@gmail.com", // kendi e-posta adresin
       subject: "Planliyo İletişim Formu",
       html: `
         <h2>Yeni iletişim mesajı</h2>
