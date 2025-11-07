@@ -30,7 +30,7 @@ export default function Hero() {
       </nav>
 
       {/* HERO Bölümü */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pb-32">
         <div className="text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8 animate-fade-in">
             <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
@@ -57,7 +57,7 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Alt Özellikler (Kredi kartı gerekmez kaldırıldı) */}
+          {/* Alt Özellikler */}
           <div className="mt-12 flex items-center justify-center gap-8 text-sm text-gray-600 animate-fade-in animation-delay-300">
             <div className="flex items-center gap-2">
               <svg
@@ -90,8 +90,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Dashboard Preview */}
-        <div className="mt-20 relative animate-slide-up animation-delay-400">
+        {/* Dashboard Preview - Optimize Edilmiş */}
+        <div className="mt-16 relative animate-slide-up animation-delay-400">
           <div className="absolute inset-0 bg-gradient-to-t from-blue-50 to-transparent h-32 bottom-0"></div>
           <div className="rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
             <div className="bg-gray-800 px-6 py-3 flex items-center gap-2">
@@ -103,7 +103,6 @@ export default function Hero() {
               <div className="flex-1 text-center text-sm text-gray-400">Planliyo Dashboard</div>
             </div>
             <div className="bg-gray-50 p-8 aspect-video flex items-center justify-center">
-              {/* Buraya gerçek dashboard görseli */}
               <img
                 src="/dashboard-preview.png"
                 alt="Planliyo Uygulama Görseli"
