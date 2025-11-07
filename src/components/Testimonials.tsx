@@ -42,10 +42,10 @@ const testimonials = [
     text: 'Acil vakalar ve rutin kontroller için farklı randevu tipleri oluşturabiliyoruz. WhatsApp sayesinde no-show oranımız çok düştü. Teknik destek ekibi de çok yardımcı oluyor.'
   },
   {
-    name: 'Burak Şahin',
+    name: 'Nurcan Özdemir',
     role: 'Kurucu Ortak',
     business: 'Glow Beauty Center',
-    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/8834025/pexels-photo-8834025.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
     text: 'Estetik ve güzellik hizmetlerimiz için detaylı randevu yönetimi gerekiyordu. Planliyo\'nun sunduğu özelleştirme seçenekleri harika. Müşteri veritabanı yönetimi de çok kullanışlı.'
   }
