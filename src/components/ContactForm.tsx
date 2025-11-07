@@ -13,40 +13,33 @@ function ContactForm() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatus('loading');
-  setErrorMessage('');
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
 
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'Planliyo <onboarding@resend.dev>',
-        to: 'tugcanyilmaz@hotmail.com',
-        subject: `Yeni mesaj: ${formData.name}`,
-        html: `
-          <p><strong>Gönderen:</strong> ${formData.name} (${formData.email})</p>
-          <p><strong>Telefon:</strong> ${formData.phone}</p>
-          <p><strong>İşletme Türü:</strong> ${formData.businessType}</p>
-          <p><strong>Mesaj:</strong><br>${formData.message}</p>
-        `,
-      }),
-    });
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (!response.ok) throw new Error('Mesaj gönderilemedi');
-    setStatus('success');
-    setFormData({ name: '', email: '', phone: '', businessType: '', message: '' });
-    setTimeout(() => setStatus('idle'), 5000);
-  } catch (error) {
-    setStatus('error');
-    setErrorMessage(error instanceof Error ? error.message : 'Bir hata oluştu');
-  }
-};
+      const data = await response.json();
 
+      if (!response.ok) {
+        throw new Error(data.error || 'Mesaj gönderilemedi');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', businessType: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Bir hata oluştu. Lütfen tekrar deneyin.');
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
@@ -124,6 +117,7 @@ function ContactForm() {
                     onChange={handleChange}
                     className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                     placeholder="Adınız ve soyadınız"
+                    disabled={status === 'loading'}
                   />
                 </div>
               </div>
@@ -143,6 +137,7 @@ function ContactForm() {
                     onChange={handleChange}
                     className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                     placeholder="ornek@email.com"
+                    disabled={status === 'loading'}
                   />
                 </div>
               </div>
@@ -162,6 +157,7 @@ function ContactForm() {
                     onChange={handleChange}
                     className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                     placeholder="0555 123 45 67"
+                    disabled={status === 'loading'}
                   />
                 </div>
               </div>
@@ -179,6 +175,7 @@ function ContactForm() {
                     value={formData.businessType}
                     onChange={handleChange}
                     className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none appearance-none"
+                    disabled={status === 'loading'}
                   >
                     <option value="">Seçiniz</option>
                     <option value="kuafor">Kuaför</option>
@@ -206,18 +203,19 @@ function ContactForm() {
                   onChange={handleChange}
                   className="w-full px-4 py-3.5 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
                   placeholder="İhtiyaçlarınız hakkında bize biraz bilgi verin..."
+                  disabled={status === 'loading'}
                 ></textarea>
               </div>
 
               {status === 'success' && (
                 <div className="p-4 bg-green-50 border border-green-200 rounded-xl text-green-800">
-                  Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+                  ✅ Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
                 </div>
               )}
 
               {status === 'error' && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-800">
-                  {errorMessage || 'Bir hata oluştu. Lütfen tekrar deneyin.'}
+                  ❌ {errorMessage}
                 </div>
               )}
 
