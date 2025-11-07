@@ -34,10 +34,10 @@ const testimonials = [
     text: '3 şubemizi tek platformdan yönetiyoruz. Çalışan yönetimi ve raporlama özellikleri harika. Artık hangi şubede ne olup bittiğini anlık görebiliyorum. Gerçekten profesyonel bir sistem.'
   },
   {
-    name: 'Elif Arslan',
+    name: 'Furkan Özlük',
     role: 'Veteriner Hekim',
     business: 'PatiDost Veteriner Kliniği',
-    image: 'https://images.pexels.com/photos/3845457/pexels-photo-3845457.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/6235110/pexels-photo-6235110.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
     text: 'Acil vakalar ve rutin kontroller için farklı randevu tipleri oluşturabiliyoruz. WhatsApp sayesinde no-show oranımız çok düştü. Teknik destek ekibi de çok yardımcı oluyor.'
   },
