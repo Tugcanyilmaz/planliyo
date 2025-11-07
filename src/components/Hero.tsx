@@ -1,10 +1,28 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calendar } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Hero() {
   const [showVideo, setShowVideo] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Dashboard görselleri
+  const dashboardImages = [
+    "/dashboard-preview-1.png",
+    "/dashboard-preview-2.png",
+    "/dashboard-preview-3.png",
+    "/dashboard-preview-4.png"
+  ];
+
+  // Otomatik kaydırma
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % dashboardImages.length);
+    }, 4000); // 4 saniyede bir değişir
+
+    return () => clearInterval(interval);
+  }, [dashboardImages.length]);
 
   // ESC tuşu ile modal kapatma
   useEffect(() => {
@@ -14,6 +32,18 @@ export default function Hero() {
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % dashboardImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + dashboardImages.length) % dashboardImages.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   return (
     <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
@@ -90,10 +120,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Dashboard Preview - Optimize Edilmiş */}
+        {/* Dashboard Preview - Kaydırmalı Slider */}
         <div className="mt-16 relative animate-slide-up animation-delay-400">
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-50 to-transparent h-32 bottom-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-50 to-transparent h-32 bottom-0 z-10"></div>
+          
           <div className="rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
+            {/* Browser Bar */}
             <div className="bg-gray-800 px-6 py-3 flex items-center gap-2">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -102,12 +134,66 @@ export default function Hero() {
               </div>
               <div className="flex-1 text-center text-sm text-gray-400">Planliyo Dashboard</div>
             </div>
-            <div className="bg-gray-50 p-8 aspect-video flex items-center justify-center">
-              <img
-                src="/dashboard-preview.png"
-                alt="Planliyo Uygulama Görseli"
-                className="rounded-xl shadow-md w-full h-full object-cover"
-              />
+
+            {/* Slider Container */}
+            <div className="relative bg-gray-50 aspect-video">
+              {/* Görseller */}
+              <div className="relative w-full h-full overflow-hidden">
+                {dashboardImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                      index === currentSlide
+                        ? "opacity-100 translate-x-0"
+                        : index < currentSlide
+                        ? "opacity-0 -translate-x-full"
+                        : "opacity-0 translate-x-full"
+                    }`}
+                  >
+                    <div className="p-8 w-full h-full flex items-center justify-center">
+                      <img
+                        src={image}
+                        alt={`Planliyo Dashboard ${index + 1}`}
+                        className="rounded-xl shadow-md w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Sol Ok */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all z-20 group"
+                aria-label="Önceki"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-800 group-hover:text-blue-600 transition" />
+              </button>
+
+              {/* Sağ Ok */}
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all z-20 group"
+                aria-label="Sonraki"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-800 group-hover:text-blue-600 transition" />
+              </button>
+
+              {/* Nokta İndikatörleri */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {dashboardImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`transition-all ${
+                      index === currentSlide
+                        ? "w-8 bg-blue-600"
+                        : "w-2 bg-gray-400 hover:bg-gray-600"
+                    } h-2 rounded-full`}
+                    aria-label={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
