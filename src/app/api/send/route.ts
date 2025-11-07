@@ -8,7 +8,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, phone, businessType, message } = body;
 
-    // Basit validasyon
     if (!name || !email || !phone || !businessType) {
       return NextResponse.json(
         { error: 'Tüm zorunlu alanları doldurun' },
@@ -16,7 +15,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // E-posta gönder
     const data = await resend.emails.send({
       from: 'Planliyo <onboarding@resend.dev>',
       to: 'tugcanyilmaz@hotmail.com',
@@ -33,10 +31,19 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error('E-posta gönderim hatası:', error);
+    console.error('E-posta hatası:', error);
     return NextResponse.json(
       { error: 'E-posta gönderilemedi' },
       { status: 500 }
     );
   }
 }
+```
+
+---
+
+### 3️⃣ Kaydedin
+
+1. Aşağıdaki **"Commit message"** kısmına yazın:
+```
+   Backend API route eklendi
