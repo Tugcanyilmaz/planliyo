@@ -18,10 +18,10 @@ const testimonials = [
     text: 'Grup derslerimiz ve kişisel seanslarımız için mükemmel bir çözüm. WhatsApp bildirimleri özellikle çok işimize yarıyor. Müşterilerimizle iletişim çok kolay.'
   },
   {
-    name: 'Murat Şahin',
+    name: 'Beyza Arslan',
     role: 'Diyetisyen',
     business: 'Sağlıklı Yaşam Danışmanlık',
-    image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/15319047/pexels-photo-15319047.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
     text: 'Online danışmanlık verdiğim için esnek bir randevu sistemi gerekiyordu. Planliyo tam ihtiyacım olan şeyi sundu. Raporlama özellikleri sayesinde işlerimi çok daha iyi takip edebiliyorum.'
   },
