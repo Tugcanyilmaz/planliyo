@@ -29,7 +29,7 @@ const testimonials = [
     name: 'Can Öztürk',
     role: 'İşletme Sahibi',
     business: 'Can Maccass Barber',
-    image: 'https://images.pexels.com/photos/2128807/pexels-photo-2128807.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/29477846/pexels-photo-29477846.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
     text: '3 şubemizi tek platformdan yönetiyoruz. Çalışan yönetimi ve raporlama özellikleri harika. Artık hangi şubede ne olup bittiğini anlık görebiliyorum. Gerçekten profesyonel bir sistem.'
   },
