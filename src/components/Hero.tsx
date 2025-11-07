@@ -121,8 +121,8 @@ export default function Hero() {
         </div>
 
         {/* Dashboard Preview - Kaydırmalı Slider */}
-        <div className="mt-16 relative animate-slide-up animation-delay-400">
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-50 to-transparent h-32 bottom-0 z-10"></div>
+        <div className="mt-16 relative animate-slide-up animation-delay-400 max-w-5xl mx-auto">
+          
           
           <div className="rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
             {/* Browser Bar */}
@@ -136,7 +136,7 @@ export default function Hero() {
             </div>
 
             {/* Slider Container */}
-            <div className="relative bg-gray-50 aspect-video">
+            <div className="relative bg-gray-50 aspect-video p-4 sm:p-8">
               {/* Görseller */}
               <div className="relative w-full h-full overflow-hidden">
                 {dashboardImages.map((image, index) => (
@@ -150,11 +150,11 @@ export default function Hero() {
                         : "opacity-0 translate-x-full"
                     }`}
                   >
-                    <div className="p-8 w-full h-full flex items-center justify-center">
+                    <div className="w-full h-full flex items-center justify-center">
                       <img
                         src={image}
                         alt={`Planliyo Dashboard ${index + 1}`}
-                        className="rounded-xl shadow-md w-full h-full object-cover"
+                        className="rounded-lg shadow-lg w-full h-full object-contain"
                       />
                     </div>
                   </div>
