@@ -5,7 +5,7 @@ const testimonials = [
     name: 'Ayşe Yılmaz',
     role: 'Salon Sahibi',
     business: 'Elegant Kuaför',
-    image: 'https://images.pexels.com/photos/3756681/pexels-photo-3756681.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/1197132/pexels-photo-1197132.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
     text: 'Planliyo sayesinde randevu karmaşası tamamen son buldu. Müşterilerim artık 7/24 online randevu alabiliyor. İş yükümüz %40 azaldı, müşteri memnuniyetimiz arttı. Kesinlikle tavsiye ediyorum!'
   },
