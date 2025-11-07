@@ -13,38 +13,40 @@ function ContactForm() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMessage('');
+  e.preventDefault();
+  setStatus('loading');
+  setErrorMessage('');
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Planliyo <onboarding@resend.dev>',
+        to: 'tugcanyilmaz@hotmail.com',
+        subject: `Yeni mesaj: ${formData.name}`,
+        html: `
+          <p><strong>Gönderen:</strong> ${formData.name} (${formData.email})</p>
+          <p><strong>Telefon:</strong> ${formData.phone}</p>
+          <p><strong>İşletme Türü:</strong> ${formData.businessType}</p>
+          <p><strong>Mesaj:</strong><br>${formData.message}</p>
+        `,
+      }),
+    });
 
-      if (!response.ok) {
-        throw new Error('Mesaj gönderilemedi');
-      }
+    if (!response.ok) throw new Error('Mesaj gönderilemedi');
+    setStatus('success');
+    setFormData({ name: '', email: '', phone: '', businessType: '', message: '' });
+    setTimeout(() => setStatus('idle'), 5000);
+  } catch (error) {
+    setStatus('error');
+    setErrorMessage(error instanceof Error ? error.message : 'Bir hata oluştu');
+  }
+};
 
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        businessType: '',
-        message: ''
-      });
-
-      setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'Bir hata oluştu');
-    }
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
