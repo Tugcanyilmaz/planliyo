@@ -10,10 +10,10 @@ const testimonials = [
     text: 'Planliyo sayesinde randevu karmaşası tamamen son buldu. Müşterilerim artık 7/24 online randevu alabiliyor. İş yükümüz %40 azaldı, müşteri memnuniyetimiz arttı. Kesinlikle tavsiye ediyorum!'
   },
   {
-    name: 'Mehmet Kaya',
+    name: 'Elif Kaya',
     role: 'Kurucu',
     business: 'FitLife Pilates Stüdyosu',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/4498516/pexels-photo-4498516.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
     rating: 5,
     text: 'Grup derslerimiz ve kişisel seanslarımız için mükemmel bir çözüm. WhatsApp bildirimleri özellikle çok işimize yarıyor. Müşterilerimizle iletişim çok kolay.'
   },
