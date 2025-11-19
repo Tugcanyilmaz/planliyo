@@ -209,7 +209,7 @@ export default function Hero() {
               className="w-full h-auto rounded-xl shadow-lg border border-gray-700 max-h-[90vh]"
             >
               <source
-                src="https://ahlfqbudhqvyoytickfl.supabase.co/storage/v1/object/public/Video/RandevuPlanla.mp4"
+                src="https://jomoyqfgmpduhapvnwoy.supabase.co/storage/v1/object/public/video/RandevuPlanla.mp4"
                 type="video/mp4"
               />
               Tarayıcınız video etiketini desteklemiyor.
